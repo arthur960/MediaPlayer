@@ -15,7 +15,7 @@ namespace MediaPlayer
     {
         private MainWindow myMainWindow;
         XmlDocument myXmlDocument = new XmlDocument();
-        myXmlDocument.Load("books.xml");
+        //myXmlDocument.Load("books.xml");
         public PlaylistForm()
         {
            
