@@ -1,0 +1,159 @@
+﻿<Window
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MediaPlayer"  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:drawerLayout="using:DrawerLayout"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Chromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="MediaPlayer.MainWindow"
+            IsTabStop="false"
+    Title="MediaPlayer" Height="524" Width="288" ResizeMode="NoResize">
+
+
+    <!-- <Window.Resources>
+        <LinearGradientBrush x:Key="SpectrumBarBrush"
+                        EndPoint="0.5,1"
+                        StartPoint="0.5,0">
+            <GradientStop Color="#06799F"
+                    Offset="0" />
+            <GradientStop Color="#024E68"
+                    Offset="1" />
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="SpectrumPeakBrush"
+                    Color="#61B4CF" />
+
+        
+        <Style x:Key ="roundButtonTemplate" TargetType ="{x:Type Button}">
+            <Setter Property ="Foreground" Value ="Black"/>
+            <Setter Property ="FontWeight" Value ="Bold"/>
+            <Setter Property="Background"/>
+            <Setter Property ="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Name ="OuterRing" Width ="36" Height ="36" Fill="Wheat" />
+                            <Ellipse Name ="InnerRing" Width ="35" Height ="35"  />
+                            
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    
+    </Window.Resources>-->
+    <Window.Background>
+        <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\background.png"/>
+    </Window.Background>
+
+
+
+    <Grid Margin="0,0,0,5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="101*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="197*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="105*"/>
+        </Grid.RowDefinitions>
+
+        <MediaElement x:Name="player" LoadedBehavior="Manual" Margin="63,20,140,20" Grid.Column="1" />
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Left" x:Name="Title" Margin="102,43,0,-43" Text="Current Song" />
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.ColumnSpan="2" Margin="0,39,0,25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+
+            <Slider x:Name="offsetSlider" Margin="0,-27,3,27" Width="200" Grid.ColumnSpan="6" Grid.Column="1"/>
+            <Button x:Name="button_back" Margin="5,1,35,-1.4" BorderThickness="1" RenderTransformOrigin="-0.55,1.7" Grid.ColumnSpan="2" Grid.Column="2" BorderBrush="{x:Null}" Click="button_back_Click" Opacity="0.8">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.238"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_01.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_stop" Grid.Column="3" Click="button_stop_Click" BorderBrush="{x:Null}" RenderTransformOrigin="1.4,0.6" Grid.ColumnSpan="2" Margin="13,1,26.8,-1.4" Opacity="0.9">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_05.png" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_forward" Grid.Column="5" Margin="30.2,1,9.6,-1.4" Grid.ColumnSpan="2" BorderBrush="{x:Null}" Opacity="0.8">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_02.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_add" Margin="40,-417,0,417" Grid.Column="6" Grid.ColumnSpan="2" Opacity="0.6">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_08.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_repeat" Grid.Column="7" Margin="0.4,1,-0.4,-1.4" Click="button_repeat_Click" RenderTransformOrigin="1.025,0.55" BorderBrush="{x:Null}" Opacity="0.7">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_07.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_shuffle" BorderBrush="{x:Null}" Click="button_shuffle_Click" RenderTransformOrigin="0.975,0.525" Margin="0,-1,0,0" Opacity="0.7" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_06.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_play" Grid.Column="4" RenderTransformOrigin="1.15,0.525" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="40" Grid.ColumnSpan="2" Margin="20,2,0,-2.4" >
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtons_04.png" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_list" HorizontalAlignment="Left" Margin="0,-417,0,0" VerticalAlignment="Top" Width="40" Height="40" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\PCS\MediaPlayer\MediaPlayer\Resources\mediaButtonsIconSet_10.png" />
+                </Button.Background>
+            </Button>
+        </Grid>
+
+        <ScrollViewer Grid.Row="2" RenderTransformOrigin="0.5,0.5" Margin="45,1,40,7" Cursor="Hand" Grid.RowSpan="2" Grid.Column="1" >
+            <ScrollViewer.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.206"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.496"/>
+                </TransformGroup>
+            </ScrollViewer.RenderTransform>
+            <ListBox ItemsSource="{Binding Songs}" Width="130" Height="238" Background="{x:Null}" BorderBrush="{x:Null}">
+                <!-- magic playlist -->
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}" Background="Transparent"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+
+        <TextBlock x:Name="timer2" HorizontalAlignment="Left" Margin="4,10,0,0" Grid.Row="6" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Height="16" Width="28" IsEnabled="False" />
+        <ListBox x:Name="listbox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="346" Margin="10,10,0,0" VerticalAlignment="Top" Width="211" Grid.RowSpan="6"
+                 Visibility="Hidden"/>
+        <TextBlock x:Name="Time" Margin="161,14,14,75" Text="00:00" RenderTransformOrigin="0.214,0.562" Grid.Column="1" Grid.Row="6" IsEnabled="False" />
+    </Grid>
+</Window>
